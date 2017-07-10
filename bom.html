@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /* 人民币符号 */
+    
+    .fn-rmb {
+        font-family: arial;
+        font-style: normal;
+        padding-right: 4px;
+    }
+    /* 代码字体 */
+    
+    code,
+    kbd,
+    pre,
+    samp {
+        font-family: monospace, serif;
+        font-size: 1em;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="selText">
+        <pre>曾经沧海难为水，除却巫山不是云。</pre>
+        <pre>取次花丛懒回顾，半缘修道半缘君。</pre>
+    </div>
+    <p id="selDisplay">您选中的内容是：</p>
+    <p class="fn-rmb">￥</p>
+    <code>hahkkdkdfll</code>
+    <script type="text/javascript">
+    let oDiv = document.getElementById('selText');
+    let oSel = document.getElementById('selDisplay');
+
+    oDiv.onmouseup = function() {
+        let selObj = getSelection();
+        let selTxt = selObj.toString();
+        oSel.innerHTML = `您选中的内容是：<b>“${selTxt}”</b>`;
+    }
+    </script>
+</body>
+
+</html>
