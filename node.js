@@ -1,0 +1,26 @@
+console.log("测试")
+// var body = document.getElementsByTagName('body')[0];  
+    var body = document.querySelector('body');
+    var wrap = document.createElement('div');  
+    wrap.id = 'wrap';  
+    wrap.style.width = '1000px';
+    wrap.style.textAlign = 'center'; 
+    wrap.style.border = '1px solid #000'; 
+    body.appendChild(wrap);  
+    // var wrap = document.querySelector('#wrap');  
+    for (var i = 1; i < 10; i++) {   
+        for (var j = 1; j <= i; j++) {    
+            var p = document.createElement('p');     //设置格子(p标签)样式                
+            p.style.width = '100px';    
+            p.style.height = '30px';    
+            p.style.lineHeight = '30px';    
+            p.style.background = 'yellow';    
+            p.style.display = 'inline-block';    
+            p.style.border = '1px solid green';    
+            p.style.textAlign = 'center';     //格子添加内容          
+            p.innerHTML = j + "*" + i + "=" + (j * i);    
+            wrap.appendChild(p);   
+        }   
+        var br = document.createElement('br');   
+        wrap.appendChild(br);  
+    }

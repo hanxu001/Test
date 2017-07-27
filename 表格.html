@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>biaoge</title>
+    <style type="text/css">
+    * {
+        margin: ;
+        padding: 0;
+    }
+
+    td {
+        border: 1px solid #000;
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+        text-align: center;
+        font-size: 30px;
+    }
+    </style>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td class="y"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td class="y"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td class="y"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td class="y"></td>
+        </tr>
+        <tr>
+            <td class="x"></td>
+            <td class="x"></td>
+            <td class="x"></td>
+            <td class="x"></td>
+            <td class="y"></td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+    var x = $('tr').size();
+    var y = $('tr').find('td').size();
+    for (var i = $('tr').size() - 1; i >= 0; i++) {
+    	for(var j = $('td').size()/$('tr').size() - 1;j >= 0;j++){
+    		var sum_x =  sum_x + $('td').eq(j).text();
+    		$('.y').eq(i).text(sum_x);
+    	}	
+    }
+    // $('.y').text('y');
+    $('.x').text('x');
+    console.log(x, y);
+    $(function() {
+
+        $("table td").click(function() {
+
+            var row = $(this).parent().index() + 1; // 行位置
+
+            var col = $(this).index() + 1; // 列位置
+
+            // alert("当前位置：第" + row + "行，第" + col + "列")
+
+        });
+    });
+    </script>
+</body>
+
+</html>
