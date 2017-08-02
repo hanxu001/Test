@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js封装1</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    // 1
+    (function(){
+    	var saber = saber || {};
+		saber = (function(){
+			// 面向对象编程、定义方法
+			saber.init = function(){
+				console.log("saber的init方法")
+			};
+			saber.brower = function(e){
+				console.log(e.name)
+			};
+			// 将定义的方法以借口的形式返回给外界使用
+			return {
+				init:saber.init,
+				brower:saber.brower
+			}
+		})();
+		saber.init();
+		saber.brower({name:'jquery.min.js'})
+    })();
+    // 2
+	(function() {
+        var saber = saber || {};
+        // 定义方法挂载在saber的原型上
+        saber.prototype = {
+            init: function() {
+                console.log('ss')
+            }
+        }
+        var my = saber.prototype;
+        my.init();
+    })();	
+    // 3.构造函数+实例化
+    (function(){
+    	function cat(name,color){
+    		this.name = name;
+    		this.color = color;
+    	}
+    	var cat1 = new cat('saber','red');
+    	var cat2 = new cat('rider','blue');
+    	console.log(cat1.name);
+    })();
+    // 4.构造函数+prototye模式，原理是能访问到原型上的属性和方法
+    (function(){
+    	function cat(name,color){
+    		this.name = name;
+    		this.color = color;
+    	};
+    	// 那些不变的属性和方法，直接挂载在prototype对象上，实例的type和eat()都指向同一个内存地址，提高运行效率
+    	cat.prototype.type = "猫科动物";
+    	cat.prototype.eat = function(){
+    		console.log("吃老鼠");
+    	}
+    	// prototype模式的验证方法
+    	// isPrototypeOf() 判断某个prototype对象和某个实例之间的关系
+    	// hasOwnProperty() 判断属性是本地属性还是还行继承自prototype对象的属性
+    	//  in运算符 判断某个实例是否包含某个属性（本地+继承）还可以遍历出对象的所有属性
+    	//  
+    })();
+	</script>
+</body>
+
+</html>
