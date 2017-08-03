@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <script type="text/javascript">
+    (function() {
+        $('.box1').animate({
+            top: '300px',// 定位
+            left: '+=95px',// 累加
+            marginTop:'500px',//驼峰写法
+            rotate:'7deg'
+        },3000, function() {
+            console.log('111');// 回调
+        }).animate({ height: "+=20px" }, 500,function(){
+        	console.log('1211');//连续回调
+        });// 多重动画排队
+    })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .test {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .test.cur {
+        animation-name: saber;
+        -webkit-animation-duration: 10000ms;
+        -o-animation-duration: 10000ms;
+        animation-duration: 10000ms;
+        -webkit-animation-timing-function: cubic-bezier(0.25, 0.18, 0.25, 1.0);
+        -o-animation-timing-function: cubic-bezier(0.25, 0.18, 0.25, 1.0);
+        animation-timing-function: cubic-bezier(0.25, 0.18, 0.25, 1.0);
+        /* -webkit-animation-iteration-count: infinite;
+        -o-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;*/
+    }
+
+    @keyframes saber {
+        0% {
+            -webkit-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            top: 0;
+            opacity: 1;
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+            top: 100%;
+            opacity: 0;
+        }
+    }
+    </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="test"></div>
+    <script type="text/javascript">
+    $('.test').click(function() {
+        $('.test').addClass('cur');
+        setTimeout(function() {
+            console.log('2')
+        }, 10000)
+    })
+    </script>
+</body>
+
+</html>
