@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>nodata</title>
+	<link rel="icon" href="images/timg.jpeg">  
+</head>
+<body>
+	<script type="text/javascript">
+		Array.prototype.groupby = function(prop){
+			return this.reduce(function(group,item){
+				var val = item[prop].toUpperCase();
+				groups[val] = group[val] || [];
+				group[val].push(item);
+				return groups;
+			},{});
+		}
+        // 语义化参数提示(数组，属性，回调，空对象)
+		function groupBy(arr,prop){
+			return arr.reduce(function(groups,item){
+				var val = item[prop].toLowerCase();
+				groups[val] = group[val] || [];
+				groups[val].push(item);
+				return groups;
+			},{})
+		}
+		function saber(n){
+			if(n>10){return 20}
+			else{return 30}
+		};
+	    
+	    function num(n){
+	    	console.log(n);
+	    }
+	    num(saber(16))
+	</script>
+</body>
+</html>
