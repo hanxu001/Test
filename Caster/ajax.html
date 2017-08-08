@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <link rel="icon" href="images/timg.jpeg">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    </style>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <div>
+    	<p class="info"></p>
+    </div>
+    <script type="text/javascript">
+    var api = 'http://test.365yf.cc';
+    var myData = {};
+    $.get(api + '/api/medias',{location:'home_banner'},function(data){
+    	myData = data;
+    	$('.info').text(myData);
+    })
+    </script>
+</body>
+
+</html>
