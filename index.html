@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            font-size: 16px;
+            color: #333;
+        }
+        .main{
+            height: 100%;
+            padding: 10px;
+        }
+        .input{
+            border: 1px solid #ccc;
+            width: 90%;
+            height: 30px;
+            border-radius: 4px;
+            padding-left: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .input:focus{ 
+            outline: none;  
+            border-color: #cfdc00;  
+            box-shadow: 0 0 5px rgba(207, 220, 0, 0.4);  
+            border-radius: 5px;  
+        }
+        .item,.item2{
+            margin-top: 4px;
+        }
+        .item span{
+            color: #fc0034;
+            margin-left: 4px;
+        }
+        .item2{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            -ms-align-items: center;
+            align-items: center;
+        }
+        .item2 .btn{
+            padding: 4px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+        .item2 .radio{
+            margin-right: 10px;
+        }
+        .false{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        (function(t) {
+            var doc = t.documentElement;
+            var curDeviceWidth = doc.clientWidth || window.innerWidth;
+            doc.style.fontSize = curDeviceWidth * (50 / 375) + 'px';
+        })(document);
+    </script>
+</head>
+
+<body style="background-color: #fff;">
+    <div class="main">
+        <p class="item">
+            产品:<span>test</span> 
+            币种:<span>比特币-BTC</span>
+        </p>
+        <p class="item">
+            提现人:<span>abc</span> 
+            电话:<span>18103845189</span>
+            金额:<span>1000</span>
+        </p>
+        <p class="item">
+            提现地址:
+        </p>
+        <p class="item">
+            <span>0xBcB71b25fAbEF43496A785401A526622651bDaE9</span>
+        </p>
+        <div class="item true" id="true">
+            <p>交易HASH</p>
+            <input type="text" class="input">
+        </div>
+        <div class="item false" id="false">
+            <p>备注</p>
+            <input type="text" class="input">
+        </div>
+        <div class="item2">
+            <label for="male">审核通过：</label>
+            <input type="radio" id="male"  class="radio" checked name='xx' value="1" onclick="getValue(this)"/>  
+            <label for="female">拒绝：</label>
+            <input type="radio" id="female" class="radio" name='xx' value="0" onclick="getValue(this)"/>  
+        </div>
+    </div>
+    <script>
+        function getValue(e){
+           var value = e.value
+           console.log(value)
+           if(value == '1'){
+            document.getElementById('true').style.display = 'block'
+            document.getElementById('false').style.display = 'none'
+        } else{
+            document.getElementById('true').style.display = 'none'
+            document.getElementById('false').style.display = 'block'
+        }
+    }
+</script>
+</body>
+
+</html>
